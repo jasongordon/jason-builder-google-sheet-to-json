@@ -1,6 +1,7 @@
+var base_url = '//mathematicsnycprod-d43f.kxcdn.com/';
 var gsjson = require('google-spreadsheet-to-json');
 gsjson({
-	spreadsheetId: '1iaanivIVtNDMVFQ31b6tl5C8ZaubqBBRgZLjr-ewE6Y',
+	spreadsheetId: '1GcTSux8-_UcVEkAOb589wdljCG3oszZL85pf3jLBuE8',
 	ignoreRow: 1,
 	propertyMode: "nospace",
 	beautify: 1
@@ -8,15 +9,15 @@ gsjson({
 	result.forEach(function(part, index, theArray) {
   		var t = theArray[index] ;
 		if(t['front'] !== undefined)
-			t['front'] = "{{ '" + t['front'] + "' | asset_url }}";
+			t['front'] = base_url + t['front'];
 		else
 			t['front'] = '';
 		if(t['top'] !== undefined)
-			t['top'] = "{{ '" + t['top'] + "' | asset_url }}";
+			t['top'] = base_url + t['top'];
 		else
 			t['top'] = '';
 		if(t['isometric'] !== undefined)
-			t['isometric']  = "{{ '" + t['isometric'] + "' | asset_url }}";
+			t['isometric']  = base_url + t['isometric'];
 		else
 			t['isometric'] = '';
 		if(t['frontKerning'] === undefined)
